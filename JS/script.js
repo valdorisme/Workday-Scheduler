@@ -1,5 +1,5 @@
 var timeCurrent = moment().hour();
-console.log(moment());
+console.log(timeCurrent);
 
 var hours = [9, 10, 11, 12, 13, 14, 15, 16, 17];
 var saveSelection = document.querySelectorAll('.saveBtn');
@@ -7,31 +7,27 @@ var saveSelection = document.querySelectorAll('.saveBtn');
 
 // Setting classes/functionality for past, present, and future
 document.querySelector('#currentDay').textContent = moment().format("dddd, MMMM Do YYYY");
-for (var i=9; i <17; i++) {
+for (var i=9; i <18; i++) {
     if (timeCurrent === hours[i]) {
-        console.log(i);
-        document.getElementById(i).classList.add("present");
+        document.classList.add("present");
     }
 
     else if (timeCurrent > hours[i]) {
-        console.log(i);
-        document.getElementById(i).classList.add("past");
+        document.classList.add("past");
     }
 
     else if (timeCurrent < hours[i]) {
-        console.log(i);
-        document.getElementById(i).classList.add("future");
+        document.classList.add("future");
     }
-}
 
 if (localStorage.getItem(i)) {
     document.getElementById(i).value = localStorage.getItem(i);
-}
 
-saveSelection[i].addEventListener("click", saveButton());
 
-function saveButton() {
-   var num = this.getAttribute("col-id") ;
+saveSelection[i].addEventListener("click", function(){
+   var num = this.getAttribute("col-id"); 
    var id = document.getElementById(id).value;
     localStorage.setItem(num, id);
+})
+}
 }
