@@ -7,17 +7,17 @@ var saveSelection = document.querySelectorAll('.saveBtn');
 
 // Setting classes/functionality for past, present, and future
 document.querySelector('#currentDay').textContent = moment().format("dddd, MMMM Do YYYY");
-for (var i=9; i <18; i++) {
+for (var i=0; i <9; i++) {
     if (timeCurrent === hours[i]) {
-        document.classList.add("present");
+        document.getElementById(i).classList.add("present");
     }
 
     else if (timeCurrent > hours[i]) {
-        document.classList.add("past");
+        document.getElementById(i).classList.add("past");
     }
 
     else if (timeCurrent < hours[i]) {
-        document.classList.add("future");
+        document.getElementById(i).classList.add("future");
     }
 
 if (localStorage.getItem(i)) {
